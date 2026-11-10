@@ -39,20 +39,20 @@
   .reading .nav.end { margin: 28px 0 0; }
   .reading p a { color: var(--light); text-decoration: underline; text-decoration-color: rgba(217,178,90,.6); text-underline-offset: 3px; }
   .reading p a:hover { text-decoration-color: var(--gilt); }
-  #studies { max-width: 92ch; }
-  #studies h1 { margin-bottom: 8px; }
-  #studies .sub { margin-bottom: 0; }
-  #studies figure { margin: 28px 0 0; }
-  #studies figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(238,235,228,.08); }
-  #studies figcaption { color: var(--soft); font-size: 15.5px; line-height: 1.5; margin: 10px 0 0; }
+  #studies, #projection { max-width: 92ch; }
+  #projection .intro { margin: 24px 0 8px; }
+  #studies h1, #projection h1 { margin-bottom: 8px; }
+  #studies .sub, #projection .sub { margin-bottom: 0; }
+  #studies figure, #projection figure { margin: 28px 0 0; }
+  #studies figure img, #projection figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(238,235,228,.08); }
+  #studies figcaption, #projection figcaption { color: var(--soft); font-size: 15.5px; line-height: 1.5; margin: 10px 0 0; }
   #studies figcaption a { color: inherit; text-decoration: underline dotted; }
-  #studies figure.study iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(238,235,228,.08); background: #070a12; }
+  #studies figure.study iframe, #projection figure.study iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(238,235,228,.08); background: #070a12; }
   #model { max-width: 92ch; }
   #model pre { font-size: 13px; line-height: 1.55; margin: 0; padding: 20px 22px; overflow-x: auto; background: rgba(238,235,228,.03); border: 1px solid rgba(238,235,228,.1); border-radius: 2px; }
   #model code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; line-height: 1.55; color: rgba(238,235,228,.82); white-space: pre; }
   @media (max-width: 640px) { .reading { font-size: 17px; } .reading h1, #cover h1 { font-size: 25px; } #model code { font-size: 12px; } }
 </style>
-<script data-goatcounter="https://aemberley.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- Statcounter -->
 <script>var sc_project=13358656; var sc_invisible=1; var sc_security="503b06b8";</script>
 <script src="https://www.statcounter.com/counter/counter.js" async></script>
@@ -69,9 +69,9 @@
   <div class="lines">
     <a class="link" href="#about">About this work</a>
     <a class="link" href="#studies">Attention Studies</a>
-    <a class="link" href="cephalopod-song-arctic-projection.html">Projection Study</a>
+    <a class="link" href="#projection">Projection Study</a>
     <a class="link" href="#model">The model</a>
-    <a class="link" href="visualizations-and-instruments.html#w-cephalopod-song">Return to the portfolio</a>
+    <a class="link" href="recent-work.html#w-cephalopod-song">Return to the portfolio</a>
   </div>
 </main>
 
@@ -126,13 +126,17 @@
     <img src="cephalopod-song/attention-frieze-reef.png" alt="Fine horizontal stripes of light and dark on a dark ground, in seven slanting bands, like a woven textile.">
     <figcaption><i>Attention frieze, Reef.</i> For every prediction of the week, how much of the six hours behind it the model looked at: the present along the bottom row, six hours ago along the top, the week running left to right. Seven slanting bands appear, one for each day, as the model&rsquo;s attention swings with dawn and dusk.</figcaption>
   </figure>
-  <figure>
-    <img src="cephalopod-song/chart-arctic.png" alt="A cross-stitch chart on a pale grid: one day of the Arctic attention frieze as 144 by 36 stitches in four greys, each marked with a cross.">
-    <figcaption><i>Cross-stitch chart, Arctic.</i> One day of the frieze, Monday 2 September 2024, in four greys: 144 &times; 36 stitches, 26 &times; 6.5 cm on 14-count cloth.</figcaption>
-  </figure>
-  <figure>
-    <img src="cephalopod-song/chart-reef.png" alt="A cross-stitch chart on a pale grid: the same day of the Reef attention frieze as 144 by 36 stitches in four greys, each marked with a cross.">
-    <figcaption><i>Cross-stitch chart, Reef.</i> The same day of the Reef frieze: 144 &times; 36 stitches, 26 &times; 6.5 cm on 14-count cloth.</figcaption>
+  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
+</article>
+
+<article id="projection" class="reading" hidden>
+  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
+  <h1>Projection Study</h1>
+  <p class="sub"><i>Cephalopod Songs: Arctic</i>, 2026, projection study.</p>
+  <p class="intro">Each of the four layers of the visualization is suspended in a darkened room using scrim. Each layer is lit from behind with its own projector: the chromatophores, iridophores, and leucophores, with the algorithmic echo at the back. The fluctuating light signals and sound are those from the visualization.</p>
+  <figure class="study">
+    <iframe src="cephalopod-song-arctic-projection.html" title="Projection study: the four layers of the Arctic visualization as suspended projected layers, walked through" loading="lazy" allow="autoplay"></iframe>
+    <figcaption><a class="link" href="cephalopod-song-arctic-projection.html">Open on its own page</a></figcaption>
   </figure>
   <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
 </article>
@@ -243,11 +247,11 @@ def windows(F, lum):
 </section>
 
 <script>
-  // pages in one file: the cover, about the work, the attention studies, and the model
-  const views = { "#about": "about", "#studies": "studies", "#model": "model" };
+  // pages in one file: the cover, about the work, the attention studies, the projection study, and the model
+  const views = { "#about": "about", "#studies": "studies", "#projection": "projection", "#model": "model" };
   function show() {
     const v = views[location.hash] || "cover";
-    for (const id of ["cover", "about", "studies", "model"]) document.getElementById(id).hidden = id !== v;
+    for (const id of ["cover", "about", "studies", "projection", "model"]) document.getElementById(id).hidden = id !== v;
     window.scrollTo(0, 0);
   }
   addEventListener("hashchange", show); show();
