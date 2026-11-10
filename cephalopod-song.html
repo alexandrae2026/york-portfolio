@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cephalopod Songs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --night: #070a12; --light: #eeebe4; --gilt: #d9b25a; --soft: rgba(238,235,228,.62); --faint: rgba(238,235,228,.42); box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body { margin: 0; background: var(--night); color: var(--light); font-family: "EB Garamond", Garamond, Georgia, serif; font-size: 16px; }
+  [hidden] { display: none !important; }
+  .link { font: inherit; font-size: 13px; letter-spacing: .02em; color: rgba(238,235,228,.55); background: transparent; border: 1px solid rgba(238,235,228,.18); padding: 4px 10px; cursor: pointer; border-radius: 2px; text-decoration: none; transition: color .3s, border-color .3s; }
+  .link:hover { color: rgba(238,235,228,.9); border-color: rgba(238,235,228,.45); }
+  a:focus-visible { outline: 2px solid var(--gilt); outline-offset: 3px; }
+
+  /* the cover: the title, the two records, and the lines beneath */
+  #cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: calc(40px + env(safe-area-inset-top, 0px)) 24px calc(40px + env(safe-area-inset-bottom, 0px)); text-align: center; }
+  #cover h1 { font-weight: 400; font-size: 30px; line-height: 1.2; margin: 0; }
+  #cover .sub { color: var(--soft); margin: 8px auto 0; max-width: 58ch; line-height: 1.5; }
+  .records { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 36px; margin: 40px 0 36px; }
+  .record { display: block; text-decoration: none; color: var(--light); width: min(460px, 100%); }
+  .record img { display: block; width: 100%; aspect-ratio: 1300 / 860; object-fit: cover; background: #000; border: 1px solid rgba(238,235,228,.1); transition: border-color .3s; }
+  .record:hover img { border-color: rgba(238,235,228,.4); }
+  .record .name { margin: 10px 0 0; font-size: 19px; }
+  .record .where { margin: 2px 0 0; color: var(--faint); font-size: 14px; }
+  .lines { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
+
+  /* about the work, the thread studies, the model */
+  .reading { max-width: 64ch; margin: 0 auto; padding: calc(40px + env(safe-area-inset-top, 0px)) 24px calc(56px + env(safe-area-inset-bottom, 0px)); line-height: 1.6; font-size: 18px; }
+  .reading h1 { font-weight: 400; font-size: 30px; line-height: 1.2; margin: 0; }
+  .reading .sub { color: var(--soft); margin: 8px 0 36px; }
+  #about h1 { margin-bottom: 36px; }
+  .reading h2 { font-weight: 400; font-style: italic; font-size: 19px; color: var(--gilt); margin: 34px 0 6px; }
+  .reading p { margin: 0 0 12px; }
+  .reading .colophon { color: var(--faint); font-size: 15.5px; margin-top: 40px; }
+  .reading .nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; }
+  .reading .nav.end { margin: 28px 0 0; }
+  .reading p a { color: var(--light); text-decoration: underline; text-decoration-color: rgba(217,178,90,.6); text-underline-offset: 3px; }
+  .reading p a:hover { text-decoration-color: var(--gilt); }
+  #studies { max-width: 92ch; }
+  #studies h1 { margin-bottom: 8px; }
+  #studies .sub { margin-bottom: 0; }
+  #studies figure { margin: 28px 0 0; }
+  #studies figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(238,235,228,.08); }
+  #studies figcaption { color: var(--soft); font-size: 15.5px; line-height: 1.5; margin: 10px 0 0; }
+  #studies figcaption a { color: inherit; text-decoration: underline dotted; }
+  #studies figure.study iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(238,235,228,.08); background: #070a12; }
+  #model { max-width: 92ch; }
+  #model pre { font-size: 13px; line-height: 1.55; margin: 0; padding: 20px 22px; overflow-x: auto; background: rgba(238,235,228,.03); border: 1px solid rgba(238,235,228,.1); border-radius: 2px; }
+  #model code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; line-height: 1.55; color: rgba(238,235,228,.82); white-space: pre; }
+  @media (max-width: 640px) { .reading { font-size: 17px; } .reading h1, #cover h1 { font-size: 25px; } #model code { font-size: 12px; } }
+</style>
+<script data-goatcounter="https://aemberley.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- Statcounter -->
+<script>var sc_project=13358656; var sc_invisible=1; var sc_security="503b06b8";</script>
+<script src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13358656/0/503b06b8/1/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+</head>
+<body>
+<main id="cover">
+  <h1>Cephalopod Songs</h1>
+  <p class="sub">A cross-section of cephalopod skin asleep under a week of recorded light, alongside predictions from small transformer models trained on earlier readings from each site.</p>
+  <div class="records">
+    <a class="record" href="cephalopod-song-arctic.html"><img src="cephalopod-song/still-arctic.png" alt="The same skin at night in a green dream, dim and blue-green."><p class="name"><i>Arctic</i></p><p class="where">Cambridge Bay, Nunavut, 9 m</p></a>
+    <a class="record" href="cephalopod-song-reef.html"><img src="cephalopod-song/still-reef.png" alt="A slab of cephalopod skin seen in section under daylight: pale discs over blue plates over white."><p class="name"><i>Reef</i></p><p class="where">Davies Reef, Great Barrier Reef, 1.9 m</p></a>
+  </div>
+  <div class="lines">
+    <a class="link" href="#about">About this work</a>
+    <a class="link" href="#studies">Attention Studies</a>
+    <a class="link" href="cephalopod-song-arctic-projection.html">Projection Study</a>
+    <a class="link" href="#model">The model</a>
+    <a class="link" href="visualizations-and-instruments.html#w-cephalopod-song">Return to the portfolio</a>
+  </div>
+</main>
+
+<article id="about" class="reading" hidden>
+  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
+  <h1>Cephalopod Songs</h1>
+
+  <h2>Skin</h2>
+  <p>A floating image depicts the structure of cephalopod skin in cross-section, slowly turning. The work was inspired by Peter Godfrey-Smith&rsquo;s account in <i>Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness</i>, of how cephalopods change the colour of their skin.</p>
+  <p>At the surface are the chromatophores: sacs of yellow, red, and brown pigment that open and close. Beneath them are the iridophores: thin, tilted plates that reflect a narrow band of colour, shifting as they turn and flashing silver when seen face-on. At the base are the leucophores: white cells that reflect whatever light reaches them. As light passes down through the pigment sacs, it reflects upward from the layers beneath and travels back up through them. The Merge slider closes the three layers into a single surface, where the colours are produced through their interaction.</p>
+
+  <h2>The light</h2>
+  <p>The patterns of light are drawn from actual records. In <i>Reef</i>, the data comes from light measured by a sensor 1.9 metres below the surface at Davies Reef, in the central Great Barrier Reef, with readings taken every ten minutes. In <i>Arctic</i>, it comes from a radiometer 9 metres below the surface in Cambridge Bay, Nunavut, with readings taken every minute. Both use the first week of September 2024. At the default pace, a day passes in four minutes. The Pace slider ranges from one day in ten minutes to one day in one minute.</p>
+
+  <h2>Sleep</h2>
+  <p>The octopus sleeps according to the rhythm described by Medeiros and colleagues (2021): periods of quiet sleep, when it is pale and still, interrupted every thirty to forty minutes by an active sleep lasting less than a minute, during which the skin moves through changing colours. Quiet sleep passes at ten times its natural speed and active sleep at twice its natural speed, so that the changes are visible.</p>
+
+  <h2>Transformer echo</h2>
+  <p>Beneath the three visible layers lies a fourth, fainter one: an echo. A <a href="#model">small transformer</a> was trained for each work on readings from its own sensor during July and August 2024, at ten-minute intervals. Neither was trained on the September week used in the work. As the work runs, the model receives the previous six hours of readings and predicts the next one.</p>
+  <p>The echo repeats the structure of the skin. It is faint and grey when the model&rsquo;s prediction is accurate, and brighter and coloured when it is wrong. It is amber when the model predicted more light than was measured, and blue when the measured light exceeded its prediction.</p>
+  <p>The model has learned the daily cycle, so at dawn and dusk the two skins tend to move together, with the echo following only slightly behind the measured light. It cannot anticipate an individual cloud, so under changing cloud cover they separate: the skin flickers while the echo changes colour in response to the model&rsquo;s errors. The model runs locally in the page.</p>
+
+  <h2>Sound</h2>
+  <p>Changes in light generate the notes: a note sounds only when the light moves by a set amount. Its pitch corresponds to the level of light. Dawn therefore rises, dusk falls, and a steady noon remains silent.</p>
+  <p>Each note is answered by the model, an octave beneath the note it predicted. It is in tune when its prediction is accurate, and out of tune when the observed light differs from what was expected.</p>
+  <p>During active sleep, a low chord rocks between two harmonies like a lullaby, voiced according to the colours displayed by the chromatophores. Night introduces a hollow fifth. Beneath this is a layer of filtered noise resembling the sound of water, which rises and falls with the level of darkness.</p>
+  <p>The key is B minor.</p>
+
+  <h2>Sources</h2>
+  <p>Light, <i>Reef</i>: Australian Institute of Marine Science (AIMS). (2009). <i>Northern Australia Automated Marine Weather and Oceanographic Stations</i>. Davies Reef Base Station, photosynthetically active radiation at 1.9 m, 1 to 7 September 2024. <a href="https://doi.org/10.25845/5c09bf93f315d" target="_blank" rel="noopener">doi:10.25845/5c09bf93f315d</a>, accessed 4 October 2026. Licensed under CC BY 3.0 AU.</p>
+  <p>Light, <i>Arctic</i>: Ocean Networks Canada Society. (2024). <i>Cambridge Bay Radiometer Deployed 2024-08-29</i>. Photosynthetically active radiation at 9 m, 1 to 7 September 2024. <a href="https://doi.org/10.34943/3c374d6d-a870-48e1-9889-93344357bb05" target="_blank" rel="noopener">doi:10.34943/3c374d6d-a870-48e1-9889-93344357bb05</a>, accessed 5 October 2026. Licensed under CC BY 4.0.</p>
+  <p>Sleep: Medeiros, S.L.S. et al. (2021). Cyclic alternation of quiet and active sleep states in the octopus. <i>iScience</i> 24(4), 102223. <a href="https://doi.org/10.1016/j.isci.2021.102223" target="_blank" rel="noopener">doi:10.1016/j.isci.2021.102223</a></p>
+  <p>Skin: Godfrey-Smith, P. (2016). <i>Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness</i>. New York: Farrar, Straus and Giroux.</p>
+  <p>Model: two transformers of the same design (36 readings of context, 24 dimensions, 2 heads, 10,537 weights each), one trained on each station&rsquo;s July and August 2024 readings, running in the pages. Designed by the artist; built and trained by Claude (Anthropic). The model&rsquo;s <a href="#model">code</a> is open source under the MIT Licence.</p>
+  <p class="colophon">&copy; 2026 Alexandra Emberley. All rights reserved, except the model&rsquo;s code (MIT Licence) and the light records (CC BY 3.0 AU, AIMS; CC BY 4.0, Ocean Networks Canada).</p>
+  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
+</article>
+
+<article id="studies" class="reading" hidden>
+  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
+  <h1>Attention Studies</h1>
+  <p class="sub">These studies examine how the small transformers assigned different weights to earlier light readings when making predictions. The model&rsquo;s attention is represented through moving arcs, friezes, and cross-stitch charts, each offering a different way of seeing the same computational process.</p>
+  <figure class="study">
+    <iframe src="cephalopod-song-attention-arcs.html" title="Attention arcs: an interactive study of one day of the Arctic model&rsquo;s attention" loading="lazy"></iframe>
+    <figcaption><i>Attention arcs.</i> One day of the Arctic record laid round a ring. For each prediction, the model&rsquo;s attention to the six hours before it is drawn as an arc back to the moments it attended to, lifted in proportion to its weight. Click the ring to begin and drag to turn; the buttons choose the day and the head.</figcaption>
+  </figure>
+  <figure>
+    <img src="cephalopod-song/attention-frieze-arctic.png" alt="The same frieze for the Arctic record: seven slanting bands, more irregular, like a woven textile.">
+    <figcaption><i>Attention frieze, Arctic.</i> The same reading of the Arctic model. The bands are less alike from day to day, as the week&rsquo;s light was.</figcaption>
+  </figure>
+  <figure>
+    <img src="cephalopod-song/attention-frieze-reef.png" alt="Fine horizontal stripes of light and dark on a dark ground, in seven slanting bands, like a woven textile.">
+    <figcaption><i>Attention frieze, Reef.</i> For every prediction of the week, how much of the six hours behind it the model looked at: the present along the bottom row, six hours ago along the top, the week running left to right. Seven slanting bands appear, one for each day, as the model&rsquo;s attention swings with dawn and dusk.</figcaption>
+  </figure>
+  <figure>
+    <img src="cephalopod-song/chart-arctic.png" alt="A cross-stitch chart on a pale grid: one day of the Arctic attention frieze as 144 by 36 stitches in four greys, each marked with a cross.">
+    <figcaption><i>Cross-stitch chart, Arctic.</i> One day of the frieze, Monday 2 September 2024, in four greys: 144 &times; 36 stitches, 26 &times; 6.5 cm on 14-count cloth.</figcaption>
+  </figure>
+  <figure>
+    <img src="cephalopod-song/chart-reef.png" alt="A cross-stitch chart on a pale grid: the same day of the Reef attention frieze as 144 by 36 stitches in four greys, each marked with a cross.">
+    <figcaption><i>Cross-stitch chart, Reef.</i> The same day of the Reef frieze: 144 &times; 36 stitches, 26 &times; 6.5 cm on 14-count cloth.</figcaption>
+  </figure>
+  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
+</article>
+
+<section id="model" class="reading" hidden>
+  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
+  <h1>The model</h1>
+  <p class="sub">The small transformer in this work, written in Python with numpy and open source under the MIT Licence. Anyone may read, run, change, and share it. One copy was trained on each light record; the learned numbers each holds after training are inside that work&rsquo;s page. The light records belong to AIMS and Ocean Networks Canada and carry their own licences.</p>
+  <pre><code># Cephalopod Songs
+# The model: a small transformer, written from scratch in Python with numpy.
+# Designed by the artist; built and trained by Claude (Anthropic).
+# One copy was trained on each light record; the learned numbers are inside each work&#x27;s page.
+
+&quot;&quot;&quot;A small transformer, in numpy, with its gradients written by hand.
+Given the last K readings of light (and the time of day), it predicts the next reading.
+Sibling of the Cordyceps Septet model; the same shape, a different question.&quot;&quot;&quot;
+import numpy as np
+
+K, D, H, FF, L, FIN = 36, 24, 2, 48, 2, 3    # context (6 h of 10-min readings), width, heads, feed-forward, layers, features per step
+DH = D // H
+
+def init(seed=1):
+    r = np.random.RandomState(seed); s = lambda *sh: (r.randn(*sh) * 0.08).astype(np.float64)
+    P = {&quot;Win&quot;: s(FIN, D), &quot;bin&quot;: np.zeros(D), &quot;pos&quot;: s(K, D), &quot;Wout&quot;: s(D, 1), &quot;bout&quot;: np.zeros(1)}
+    for l in range(L):
+        P.update({f&quot;Wq{l}&quot;: s(D, D), f&quot;Wk{l}&quot;: s(D, D), f&quot;Wv{l}&quot;: s(D, D), f&quot;Wo{l}&quot;: s(D, D),
+                  f&quot;g1{l}&quot;: np.ones(D), f&quot;b1{l}&quot;: np.zeros(D), f&quot;W1{l}&quot;: s(D, FF), f&quot;c1{l}&quot;: np.zeros(FF),
+                  f&quot;W2{l}&quot;: s(FF, D), f&quot;c2{l}&quot;: np.zeros(D), f&quot;g2{l}&quot;: np.ones(D), f&quot;b2{l}&quot;: np.zeros(D)})
+    return P
+
+def ln_f(x, g, b, eps=1e-5):
+    mu = x.mean(-1, keepdims=True); xc = x - mu; var = (xc * xc).mean(-1, keepdims=True); inv = 1 / np.sqrt(var + eps)
+    xh = xc * inv; return xh * g + b, (xh, inv, g)
+def ln_b(dy, cache):
+    xh, inv, g = cache; dg = (dy * xh).sum((0, 1)); db = dy.sum((0, 1)); dxh = dy * g
+    dx = inv * (dxh - dxh.mean(-1, keepdims=True) - xh * (dxh * xh).mean(-1, keepdims=True)); return dx, dg, db
+
+def softmax(z): z = z - z.max(-1, keepdims=True); e = np.exp(z); return e / e.sum(-1, keepdims=True)
+
+def forward(P, X, want_attn=False):
+    &quot;&quot;&quot;X: (B, K, FIN). Returns prediction (B,) and a cache for backward.&quot;&quot;&quot;
+    B = X.shape[0]; h = X @ P[&quot;Win&quot;] + P[&quot;bin&quot;] + P[&quot;pos&quot;]; cache = {&quot;X&quot;: X, &quot;hs&quot;: []}; attns = []
+    mask = np.triu(np.ones((K, K)), 1).astype(bool)
+    for l in range(L):
+        a, c1 = ln_f(h, P[f&quot;g1{l}&quot;], P[f&quot;b1{l}&quot;])
+        q = (a @ P[f&quot;Wq{l}&quot;]).reshape(B, K, H, DH).transpose(0, 2, 1, 3); k = (a @ P[f&quot;Wk{l}&quot;]).reshape(B, K, H, DH).transpose(0, 2, 1, 3); v = (a @ P[f&quot;Wv{l}&quot;]).reshape(B, K, H, DH).transpose(0, 2, 1, 3)
+        sc = q @ k.transpose(0, 1, 3, 2) / np.sqrt(DH); sc = np.where(mask, -1e9, sc); at = softmax(sc)
+        o = (at @ v).transpose(0, 2, 1, 3).reshape(B, K, D); ao = o @ P[f&quot;Wo{l}&quot;]; h2 = h + ao
+        f, c2 = ln_f(h2, P[f&quot;g2{l}&quot;], P[f&quot;b2{l}&quot;]); u = f @ P[f&quot;W1{l}&quot;] + P[f&quot;c1{l}&quot;]; r = np.maximum(u, 0); fo = r @ P[f&quot;W2{l}&quot;] + P[f&quot;c2{l}&quot;]; h3 = h2 + fo
+        cache[&quot;hs&quot;].append((h, a, c1, q, k, v, at, o, h2, f, c2, u, r)); attns.append(at); h = h3
+    last = h[:, -1, :]; y = (last @ P[&quot;Wout&quot;] + P[&quot;bout&quot;])[:, 0]; cache[&quot;last&quot;] = last; cache[&quot;h&quot;] = h
+    return (y, cache, attns) if want_attn else (y, cache)
+
+def backward(P, cache, dy):
+    &quot;&quot;&quot;dy: (B,) gradient of the loss with respect to the prediction. Returns gradients for every parameter.&quot;&quot;&quot;
+    G = {k: np.zeros_like(v) for k, v in P.items()}; B = dy.shape[0]
+    G[&quot;Wout&quot;] = cache[&quot;last&quot;].T @ dy[:, None]; G[&quot;bout&quot;] = dy.sum(keepdims=True)
+    dh = np.zeros_like(cache[&quot;h&quot;]); dh[:, -1, :] = dy[:, None] * P[&quot;Wout&quot;][:, 0]
+    mask = np.triu(np.ones((K, K)), 1).astype(bool)
+    for l in reversed(range(L)):
+        h, a, c1, q, k, v, at, o, h2, f, c2, u, r = cache[&quot;hs&quot;][l]
+        # feed-forward
+        dfo = dh; G[f&quot;W2{l}&quot;] += np.einsum(&quot;bkf,bkd-&gt;fd&quot;, r, dfo); G[f&quot;c2{l}&quot;] += dfo.sum((0, 1)); dr = dfo @ P[f&quot;W2{l}&quot;].T; du = dr * (u &gt; 0)
+        G[f&quot;W1{l}&quot;] += np.einsum(&quot;bkd,bkf-&gt;df&quot;, f, du); G[f&quot;c1{l}&quot;] += du.sum((0, 1)); df = du @ P[f&quot;W1{l}&quot;].T
+        dh2, dg2, db2 = ln_b(df, c2); G[f&quot;g2{l}&quot;] += dg2; G[f&quot;b2{l}&quot;] += db2; dh2 = dh2 + dh
+        # attention
+        dao = dh2; G[f&quot;Wo{l}&quot;] += np.einsum(&quot;bkd,bke-&gt;de&quot;, o, dao); do = (dao @ P[f&quot;Wo{l}&quot;].T).reshape(B, K, H, DH).transpose(0, 2, 1, 3)
+        dat = do @ v.transpose(0, 1, 3, 2); dv = at.transpose(0, 1, 3, 2) @ do
+        dsc = at * (dat - (dat * at).sum(-1, keepdims=True)); dsc = np.where(mask, 0, dsc) / np.sqrt(DH)
+        dq = dsc @ k; dk = dsc.transpose(0, 1, 3, 2) @ q
+        dq = dq.transpose(0, 2, 1, 3).reshape(B, K, D); dk = dk.transpose(0, 2, 1, 3).reshape(B, K, D); dv = dv.transpose(0, 2, 1, 3).reshape(B, K, D)
+        G[f&quot;Wq{l}&quot;] += np.einsum(&quot;bkd,bke-&gt;de&quot;, a, dq); G[f&quot;Wk{l}&quot;] += np.einsum(&quot;bkd,bke-&gt;de&quot;, a, dk); G[f&quot;Wv{l}&quot;] += np.einsum(&quot;bkd,bke-&gt;de&quot;, a, dv)
+        da = dq @ P[f&quot;Wq{l}&quot;].T + dk @ P[f&quot;Wk{l}&quot;].T + dv @ P[f&quot;Wv{l}&quot;].T
+        dh1, dg1, db1 = ln_b(da, c1); G[f&quot;g1{l}&quot;] += dg1; G[f&quot;b1{l}&quot;] += db1; dh = dh1 + dh2
+    G[&quot;pos&quot;] += dh.sum(0); G[&quot;bin&quot;] += dh.sum((0, 1)); G[&quot;Win&quot;] += np.einsum(&quot;bkf,bkd-&gt;fd&quot;, cache[&quot;X&quot;], dh)
+    return G
+
+def features(lum, t0_index):
+    &quot;&quot;&quot;lum: a 1-D array of light levels (0..1); returns per-step features [lum, sin(hour), cos(hour)] with 144 steps a day,
+    where t0_index is the index of the step at local midnight.&quot;&quot;&quot;
+    n = len(lum); ph = ((np.arange(n) - t0_index) % 144) / 144 * 2 * np.pi
+    return np.stack([lum, np.sin(ph), np.cos(ph)], 1)
+
+def windows(F, lum):
+    &quot;&quot;&quot;Every window of K steps and the reading that follows it.&quot;&quot;&quot;
+    n = len(lum) - K; X = np.stack([F[i:i + K] for i in range(n)]); y = lum[K:K + n]; return X, y
+
+# MIT Licence
+#
+# Copyright (c) 2026 Alexandra Emberley
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+# associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge, publish, distribute,
+# sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or
+# substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+# NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
+</section>
+
+<script>
+  // pages in one file: the cover, about the work, the attention studies, and the model
+  const views = { "#about": "about", "#studies": "studies", "#model": "model" };
+  function show() {
+    const v = views[location.hash] || "cover";
+    for (const id of ["cover", "about", "studies", "model"]) document.getElementById(id).hidden = id !== v;
+    window.scrollTo(0, 0);
+  }
+  addEventListener("hashchange", show); show();
+</script>
+</body>
+</html>

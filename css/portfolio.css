@@ -1,0 +1,260 @@
+/* Alexandra Emberley, York Portfolio 2026
+   One type system across every page: Jost, a geometric face after Futura.
+   Each work sets its own ground with --ground and, on dark grounds, --ink. */
+
+:root {
+  --paper: #fcfcfa;
+  --ink: #1e2023;
+  --gilt: #8a6a2c;
+  --ground: var(--paper);
+  --view: 70vh;  /* the tallest any work is shown, so a whole piece fits on a laptop screen */
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Jost", "Futura", "Futura PT", "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--gilt); outline-offset: 3px; }
+
+/* every band shares one measure and one gutter */
+.band {
+  background: var(--ground);
+  color: var(--ink);
+  padding-inline: max(16px, 4vw);
+}
+.inner { max-width: 1080px; margin: 0 auto; }
+
+/* masthead */
+.masthead { padding-block: 22px 0; }
+.masthead .inner {
+  display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: baseline;
+  gap: 8px 28px;
+}
+.sections { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0; padding: 0; list-style: none; }
+.sections a, .label {
+  font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+  color: color-mix(in srgb, var(--ink) 58%, transparent);
+}
+.sections a:hover { color: var(--ink); }
+.sections a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--gilt); text-underline-offset: 5px;
+}
+
+/* section opener */
+.opener { padding-block: clamp(56px, 11vw, 120px) clamp(40px, 7vw, 72px); }
+.opener .label { display: block; margin-bottom: 14px; }
+.opener h1 {
+  margin: 0; font-weight: 400; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.12; letter-spacing: -.005em;
+  text-wrap: balance;
+}
+.opener .dates { margin: 10px 0 0; font-size: 17px; color: color-mix(in srgb, var(--ink) 62%, transparent); }
+
+/* a work */
+.work { padding-block: clamp(52px, 8vw, 96px); }
+.work-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin: 0 0 clamp(24px, 4vw, 40px); }
+.work-head h2 { margin: 0; font-weight: 400; font-style: italic; font-size: clamp(22px, 2.6vw, 27px); line-height: 1.25; }
+.work-head .year { margin: 0; font-size: 16px; color: color-mix(in srgb, var(--ink) 60%, transparent); font-variant-numeric: oldstyle-nums; }
+
+/* plates: a group of images with the caption that belongs to them */
+.plate { margin: 0; display: grid; gap: 14px; justify-items: start; }
+.plate + .plate { margin-top: clamp(40px, 6vw, 64px); }
+.plate-media { display: contents; }
+.plate-media > img { width: auto; max-height: var(--view); }
+.capped { display: block; width: 100%; }
+.capped img { width: 100%; height: auto; }
+.plate img { box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 10%, transparent); }
+
+/* a row of images held to one height: each figure grows by its aspect ratio */
+.row { display: flex; gap: 14px; width: 100%; max-width: min(var(--mw), calc(var(--view) * var(--sum) + var(--gaps))); }
+.row > img { flex: var(--ar) 1 0; min-width: 0; width: 100%; }
+
+.plate figcaption {
+  max-width: 72ch; font-size: 14px; line-height: 1.55;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+.plate figcaption i { color: var(--ink); }
+.plate figcaption .line { display: block; }
+.plate figcaption .line + .line { margin-top: 4px; }
+.plate figcaption a { text-decoration-color: var(--gilt); text-underline-offset: 3px; overflow-wrap: anywhere; }
+
+/* the artist's own text on a work, set at reading size */
+.note { max-width: 66ch; margin: 28px 0 0; font-size: 16px; line-height: 1.65; }
+.note i { font-style: italic; }
+
+/* moving image */
+.clip, .film { display: block; max-width: 100%; height: auto; max-height: var(--view); width: auto; background: transparent; }
+.clip { cursor: pointer; }
+.clip:focus-visible, .film:focus-visible { outline: 2px solid var(--gilt); outline-offset: 3px; }
+.player { display: grid; gap: 10px; width: fit-content; max-width: 100%; }
+.player .film { cursor: pointer; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent); }
+.player-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.player-controls .btn { font-family: inherit; background: transparent; cursor: pointer; }
+.player-controls .seek { flex: 1 1 140px; min-width: 120px; accent-color: color-mix(in srgb, var(--ink) 60%, transparent); }
+.player-controls .time { font-size: 13px; font-variant-numeric: tabular-nums; color: color-mix(in srgb, var(--ink) 60%, transparent); min-width: 7.5em; }
+.row > .clip, .row > .film { flex: var(--ar) 1 0; min-width: 0; width: 100%; max-height: none; }
+
+/* a publication shown page by page */
+.book { width: 100%; display: grid; gap: 14px; }
+.pages {
+  display: flex; align-items: flex-start; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-block: 4px 12px; overscroll-behavior-x: contain; position: relative;
+}
+.pages:focus-visible { outline: 2px solid var(--gilt); outline-offset: 4px; }
+.page { flex: none; scroll-snap-align: start; display: block; }
+.page img {
+  height: min(clamp(320px, 64vh, 720px), calc(var(--h, 2000px) * 1.2));
+  width: auto; max-width: none; background: #fff;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+/* a clip takes its place in the strip at the same height as the images */
+.page .clip {
+  height: min(clamp(320px, 64vh, 720px), calc(var(--h, 2000px) * 1.2));
+  width: auto; max-width: none; max-height: none; aspect-ratio: var(--ar);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+.book-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.book-controls button { font-family: inherit; background: transparent; cursor: pointer; }
+.book-controls button:disabled { opacity: .35; cursor: default; }
+.hint { font-size: 13px; font-style: italic; color: color-mix(in srgb, var(--ink) 55%, transparent); }
+
+/* text that opens a work, and the links that close it */
+.note.lead { margin: 0 0 clamp(28px, 4vw, 40px); }
+.work-links { margin-top: clamp(32px, 5vw, 48px); }
+.plate + .note + .plate, .note + .plate { margin-top: clamp(40px, 6vw, 64px); }
+.roman { font-style: normal; }
+
+/* front page: one band per section */
+.contents { padding-block: clamp(44px, 7vw, 80px); }
+.contents .inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.contents h2 { margin: 6px 0 4px; font-weight: 400; font-size: clamp(24px, 3vw, 32px); line-height: 1.15; }
+.contents h2 a { text-decoration: none; }
+.contents .dates { margin: 0 0 18px; font-size: 16px; color: color-mix(in srgb, var(--ink) 62%, transparent); }
+.contents ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 2px; font-size: 15.5px; }
+.contents li i { font-style: italic; }
+.contents img { width: 100%; height: auto; max-height: 60vh; object-fit: cover; }
+.contents.wide .inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+@media (max-width: 760px) { .contents .inner { grid-template-columns: 1fr; } }
+
+.note + .note { margin-top: 12px; }
+.note > .label:only-child { display: block; margin-top: 8px; }
+.colophon { max-width: 72ch; margin-top: 28px; font-size: 13.5px; line-height: 1.5; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.colophon .label { display: block; margin-bottom: 6px; }
+.colophon p { margin: 0 0 6px; }
+.colophon a { overflow-wrap: anywhere; text-decoration-color: var(--gilt); text-underline-offset: 3px; }
+
+ol.sources { max-width: 68ch; margin: 10px 0 0; padding-left: 1.6em; font-size: 14.5px; line-height: 1.55; display: grid; gap: 4px; font-variant-numeric: oldstyle-nums; }
+ol.sources li::marker { color: color-mix(in srgb, var(--ink) 55%, transparent); }
+
+@media (max-width: 640px) { /* phone strip: keep portraits and landscapes closer in height */
+  .page img, .page .clip { height: min(calc((100vw - 32px) / var(--ar, .7727)), calc((100vw - 32px) * 1.05), calc(var(--h, 2000px) * 1.2)); }
+}
+
+/* close of section */
+footer.close .inner { border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); padding-top: clamp(28px, 4vw, 40px); }
+.close { padding-block: clamp(56px, 8vw, 88px) 36px; }
+.close .inner { display: grid; gap: 40px; }
+.next { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.btn {
+  font-size: 13px; letter-spacing: .03em; text-decoration: none;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  padding: 6px 12px; border-radius: 2px; transition: color .3s, border-color .3s;
+}
+.btn:hover { color: var(--ink); border-color: color-mix(in srgb, var(--ink) 50%, transparent); }
+.btn i { font-style: italic; }
+.rights { margin: 0; font-size: 12.5px; line-height: 1.5; max-width: 72ch; color: color-mix(in srgb, var(--ink) 55%, transparent); }
+
+@media (max-width: 640px) {
+  body { font-size: 15.5px; }
+  .row { flex-direction: column; max-width: var(--mw); }
+  .row > img { flex: none; }
+  .plate figcaption { font-size: 13.5px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* about and CV */
+.prose .inner > .label { display: block; margin: clamp(36px, 5vw, 52px) 0 0; font-weight: 400; }
+.prose .note.ack { margin-top: 0; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.prose .note a { text-decoration-color: var(--gilt); text-underline-offset: 3px; }
+.cv { padding-bottom: 8px; }
+.cv section + section { margin-top: clamp(36px, 5vw, 52px); }
+.cv h2 {
+  margin: 0 0 14px; font-weight: 400; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 58%, transparent);
+}
+.cv .entry { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0 18px; max-width: 72ch; margin: 0 0 8px; font-size: 15px; line-height: 1.5; }
+.cv .year { color: color-mix(in srgb, var(--ink) 60%, transparent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cv ul.skills { list-style: none; margin: 0; padding: 0; font-size: 15px; line-height: 1.5; display: grid; gap: 4px; }
+.cv p.plain { margin: 0; font-size: 15px; max-width: 72ch; }
+@media (max-width: 520px) {
+  .cv .entry { grid-template-columns: 1fr; margin-bottom: 12px; }
+}
+
+.masthead .home {
+  font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+  color: color-mix(in srgb, var(--ink) 58%, transparent);
+}
+.masthead .home:hover { color: var(--ink); }
+.masthead .home[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gilt); text-underline-offset: 5px; }
+
+/* exhibition history and funding acknowledgement beneath a work */
+.shows { margin-top: clamp(36px, 5vw, 52px); max-width: 72ch; }
+.shows .label { display: block; margin-bottom: 10px; }
+.shows ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; line-height: 1.5; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.shows i { color: var(--ink); }
+.shows a { color: inherit; text-decoration-color: var(--gilt); text-underline-offset: 3px; }
+.afa { margin: 28px 0 0; }
+.afa img { width: 132px; height: auto; opacity: .55; box-shadow: none; }
+.verse { margin: 0; font-size: 15px; line-height: 1.7; font-style: italic; white-space: pre-line; }
+.poem { margin: 0; font-size: 14.5px; line-height: 1.75; max-width: 72ch; white-space: pre-wrap; }
+.poem-label { display: block; margin: clamp(32px, 5vw, 44px) 0 12px; }
+.note.poem-src { margin-top: 12px; font-size: 13.5px; color: color-mix(in srgb, var(--ink) 65%, transparent); }
+.hero { padding-block: clamp(24px, 4vw, 48px) 0; }
+.hero .clip { width: 100%; max-height: none; cursor: default; }
+.hero-cap { margin: 10px 0 0; font-size: 13px; color: color-mix(in srgb, var(--ink) 60%, transparent); }
+.hero + .opener { padding-top: clamp(40px, 6vw, 72px); }
+
+/* cover page: the clip alone, centred in the window */
+.cover { min-height: calc(100vh - 64px); min-height: calc(100svh - 64px); display: grid; align-items: center; padding-block: 24px 48px; }
+.cover .clip { width: 100%; max-height: calc(100vh - 200px); object-fit: contain; cursor: default; }
+.cover-line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; margin: 14px 0 0; font-size: 13px; color: color-mix(in srgb, var(--ink) 60%, transparent); }
+.note.excerpt-note { margin: 0 0 4px; font-size: 14.5px; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.player:fullscreen { width: 100%; height: 100%; background: var(--ground); padding: 24px; display: grid; grid-template-rows: 1fr auto; align-items: center; justify-items: center; }
+.player:fullscreen .film { max-height: calc(100vh - 110px); width: auto; max-width: 100%; }
+.player:-webkit-full-screen { width: 100%; height: 100%; background: var(--ground); padding: 24px; display: grid; grid-template-rows: 1fr auto; align-items: center; justify-items: center; }
+
+/* an installation view beside the exhibition list */
+.shows.with-img { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 20px 48px; align-items: start; }
+.shows.with-img > div { max-width: 72ch; }
+.shows-img { margin: 0; }
+.shows-img img { width: 100%; height: auto; }
+.shows-img figcaption { margin-top: 8px; font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--ink) 65%, transparent); }
+.shows-img figcaption i { color: var(--ink); }
+@media (max-width: 700px) { .shows.with-img { grid-template-columns: 1fr; } .shows-img { max-width: 300px; } }
+
+/* parts of one work at a single width */
+.stack { display: grid; gap: 14px; width: 100%; }
+.stack img { width: 100%; height: auto; max-height: none; }
+.stack .row { max-width: none; }
+.plate .space { height: 12px; width: 100%; }
+.side { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 20px 48px; align-items: start; margin-top: clamp(40px, 6vw, 64px); }
+.side .plate { max-width: none; }
+.side .note { margin-top: 0; }
+.side .note p { margin: 0; }
+.side ol.sources { max-width: none; }
+@media (max-width: 760px) { .side { grid-template-columns: 1fr; } }
+/* exhibition documentation after the list */
+.shows + .plate.doc, .plate.doc + .plate.doc { margin-top: clamp(28px, 4vw, 40px); }
+.plate.doc figcaption { font-size: 13px; }
