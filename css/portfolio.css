@@ -258,3 +258,7 @@ footer.close .inner { border-top: 1px solid color-mix(in srgb, var(--ink) 14%, t
 /* exhibition documentation after the list */
 .shows + .plate.doc, .plate.doc + .plate.doc { margin-top: clamp(28px, 4vw, 40px); }
 .plate.doc figcaption { font-size: 13px; }
+
+/* Recent work: one darker ground for the whole page, with a fine line between works */
+body.dark { background: #1f232b; color-scheme: dark; }
+body.dark .work + .work { border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }

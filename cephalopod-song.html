@@ -39,15 +39,15 @@
   .reading .nav.end { margin: 28px 0 0; }
   .reading p a { color: var(--light); text-decoration: underline; text-decoration-color: rgba(217,178,90,.6); text-underline-offset: 3px; }
   .reading p a:hover { text-decoration-color: var(--gilt); }
-  #studies, #projection { max-width: 92ch; }
-  #projection .intro { margin: 24px 0 8px; }
-  #studies h1, #projection h1 { margin-bottom: 8px; }
-  #studies .sub, #projection .sub { margin-bottom: 0; }
-  #studies figure, #projection figure { margin: 28px 0 0; }
-  #studies figure img, #projection figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(238,235,228,.08); }
-  #studies figcaption, #projection figcaption { color: var(--soft); font-size: 15.5px; line-height: 1.5; margin: 10px 0 0; }
+  #studies, #installation { max-width: 92ch; }
+  #installation .intro { margin: 24px 0 8px; }
+  #studies h1, #installation h1 { margin-bottom: 8px; }
+  #studies .sub, #installation .sub { margin-bottom: 0; }
+  #studies figure, #installation figure { margin: 28px 0 0; }
+  #studies figure img, #installation figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(238,235,228,.08); }
+  #studies figcaption, #installation figcaption { color: var(--soft); font-size: 15.5px; line-height: 1.5; margin: 10px 0 0; }
   #studies figcaption a { color: inherit; text-decoration: underline dotted; }
-  #studies figure.study iframe, #projection figure.study iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(238,235,228,.08); background: #070a12; }
+  #studies figure.study iframe, #installation figure.study iframe { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(238,235,228,.08); background: #070a12; }
   #model { max-width: 92ch; }
   #model pre { font-size: 13px; line-height: 1.55; margin: 0; padding: 20px 22px; overflow-x: auto; background: rgba(238,235,228,.03); border: 1px solid rgba(238,235,228,.1); border-radius: 2px; }
   #model code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; line-height: 1.55; color: rgba(238,235,228,.82); white-space: pre; }
@@ -68,15 +68,14 @@
   </div>
   <div class="lines">
     <a class="link" href="#about">About this work</a>
-    <a class="link" href="#studies">Attention Studies</a>
-    <a class="link" href="#projection">Projection Study</a>
+    <a class="link" href="#installation">Installation</a>
     <a class="link" href="#model">The model</a>
     <a class="link" href="recent-work.html#w-cephalopod-song">Return to the portfolio</a>
   </div>
 </main>
 
 <article id="about" class="reading" hidden>
-  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
+  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#installation">Installation</a></div>
   <h1>Cephalopod Songs</h1>
 
   <h2>Skin</h2>
@@ -107,32 +106,13 @@
   <p>Skin: Godfrey-Smith, P. (2016). <i>Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness</i>. New York: Farrar, Straus and Giroux.</p>
   <p>Model: two transformers of the same design (36 readings of context, 24 dimensions, 2 heads, 10,537 weights each), one trained on each station&rsquo;s July and August 2024 readings, running in the pages. Designed by the artist; built and trained by Claude (Anthropic). The model&rsquo;s <a href="#model">code</a> is open source under the MIT Licence.</p>
   <p class="colophon">&copy; 2026 Alexandra Emberley. All rights reserved, except the model&rsquo;s code (MIT Licence) and the light records (CC BY 3.0 AU, AIMS; CC BY 4.0, Ocean Networks Canada).</p>
-  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
+  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#installation">Installation</a></div>
 </article>
 
-<article id="studies" class="reading" hidden>
+<article id="installation" class="reading" hidden>
   <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
-  <h1>Attention Studies</h1>
-  <p class="sub">These studies examine how the small transformers assigned different weights to earlier light readings when making predictions. The model&rsquo;s attention is represented through moving arcs, friezes, and cross-stitch charts, each offering a different way of seeing the same computational process.</p>
-  <figure class="study">
-    <iframe src="cephalopod-song-attention-arcs.html" title="Attention arcs: an interactive study of one day of the Arctic model&rsquo;s attention" loading="lazy"></iframe>
-    <figcaption><i>Attention arcs.</i> One day of the Arctic record laid round a ring. For each prediction, the model&rsquo;s attention to the six hours before it is drawn as an arc back to the moments it attended to, lifted in proportion to its weight. Click the ring to begin and drag to turn; the buttons choose the day and the head.</figcaption>
-  </figure>
-  <figure>
-    <img src="cephalopod-song/attention-frieze-arctic.png" alt="The same frieze for the Arctic record: seven slanting bands, more irregular, like a woven textile.">
-    <figcaption><i>Attention frieze, Arctic.</i> The same reading of the Arctic model. The bands are less alike from day to day, as the week&rsquo;s light was.</figcaption>
-  </figure>
-  <figure>
-    <img src="cephalopod-song/attention-frieze-reef.png" alt="Fine horizontal stripes of light and dark on a dark ground, in seven slanting bands, like a woven textile.">
-    <figcaption><i>Attention frieze, Reef.</i> For every prediction of the week, how much of the six hours behind it the model looked at: the present along the bottom row, six hours ago along the top, the week running left to right. Seven slanting bands appear, one for each day, as the model&rsquo;s attention swings with dawn and dusk.</figcaption>
-  </figure>
-  <div class="nav end"><a class="link" href="#">Return to the cover</a><a class="link" href="#about">About this work</a></div>
-</article>
-
-<article id="projection" class="reading" hidden>
-  <div class="nav"><a class="link" href="#">Return to the cover</a><a class="link" href="#studies">Attention Studies</a></div>
-  <h1>Projection Study</h1>
-  <p class="sub"><i>Cephalopod Songs: Arctic</i>, 2026, projection study.</p>
+  <h1>Installation</h1>
+  <p class="sub"><i>Cephalopod Songs: Arctic</i>, 2026, installation study.</p>
   <p class="intro">Each of the four layers of the visualization is suspended in a darkened room using scrim. Each layer is lit from behind with its own projector: the chromatophores, iridophores, and leucophores, with the algorithmic echo at the back. The fluctuating light signals and sound are those from the visualization.</p>
   <figure class="study">
     <iframe src="cephalopod-song-arctic-projection.html" title="Projection study: the four layers of the Arctic visualization as suspended projected layers, walked through" loading="lazy" allow="autoplay"></iframe>
@@ -247,11 +227,11 @@ def windows(F, lum):
 </section>
 
 <script>
-  // pages in one file: the cover, about the work, the attention studies, the projection study, and the model
-  const views = { "#about": "about", "#studies": "studies", "#projection": "projection", "#model": "model" };
+  // pages in one file: the cover, about the work, the installation, and the model
+  const views = { "#about": "about", "#installation": "installation", "#model": "model" };
   function show() {
     const v = views[location.hash] || "cover";
-    for (const id of ["cover", "about", "studies", "projection", "model"]) document.getElementById(id).hidden = id !== v;
+    for (const id of ["cover", "about", "installation", "model"]) document.getElementById(id).hidden = id !== v;
     window.scrollTo(0, 0);
   }
   addEventListener("hashchange", show); show();
