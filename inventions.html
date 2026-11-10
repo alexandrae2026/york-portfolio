@@ -30,6 +30,7 @@
   #about .fine { font-size: 13px; color: rgba(238,235,228,.4); line-height: 1.5; margin-top: 28px; }
   a.link { font: inherit; font-size: 13px; letter-spacing: .02em; color: rgba(238,235,228,.55); border: 1px solid rgba(238,235,228,.18); padding: 4px 10px; border-radius: 2px; text-decoration: none; transition: color .3s, border-color .3s; }
   a.link:hover { color: rgba(238,235,228,.9); border-color: rgba(238,235,228,.45); }
+  #about .fine + .fine { margin-top: -8px; }
 </style>
 </head>
 <body>
@@ -54,10 +55,15 @@
   <div class="page">
     <h1>Inventions</h1>
     <p class="sub">Study 25</p>
-    <p>A music box turns. Its cylinder carries Bach's Invention 4 in D minor as pins: the guitar's voice toward one end, the piano's toward the other. A pin sounds as it passes the comb along the top; the past turns down the front and the future comes over from behind.</p>
-    <p>A listener heard this piece with electrodes on the scalp, twice: once asked to follow the guitar, once the piano. Twenty of the notes tremble, ten in each voice; those pins are cut as waves, and the notes waver as they sound. The listener was asked to press a key whenever the voice being followed trembled. Each press is a bead above the cylinder, tied by a thread to the pin it answers: a clear bead when it answers the voice the listener was following, a smoky one when the listener's hand answered the other voice, and a dim bead alone beyond the guitar's end when it answers nothing. As each pin sounds, the listener's brain response to it is drawn as a comet from the pin, and heard as a faint echo after the note. The lit voice is the one the listener was asked to follow; each time the piece comes round, the hearing changes.</p>
-    <p>A second cylinder turns outside the listener's: a small transformer, trained on the listener's responses to four other inventions, guesses the response to each note before it comes, and from those guesses keeps a running belief about which voice the listener is following. Its pins are faint while it is right and brighten when it is surprised; its belief is the pale light that slides along the comb between the two voices.</p>
-    <p class="fine">Listener EBIP02, and the vibrato and key-press records, from Etard, Ben Messaoud, Gaugain and Reichenbach, <i>Bipolar EEG dataset, music</i> (Imperial College London, 2020; Zenodo 4470135, CC BY 4.0), described in their paper in the <i>Journal of Cognitive Neuroscience</i> 34 (2022). Model: a two-layer transformer trained on inventions 2, 3, 6 and 7 in both hearings, invention 4 held out. Designed by the artist; built and trained by Claude (Anthropic). &copy; 2026 Alexandra Emberley.</p>
+    <p>The visualization was an attempt to map the difference between human and algorithmic attention, inspired by the concept of efference copy. Efference copy can be understood as the mental copy a nervous system keeps of its own outgoing signals. It is a record of its own activity that allows it to stay oriented to its own actions.</p>
+    <p>The data used in the visualization is from an EEG study conducted by Octave Etard, Rémy Ben Messaoud, Gabriel Gaugain and Tobias Reichenbach, published in the <i>Journal of Cognitive Neuroscience</i> in 2022, in which listeners were asked to respond to Bach’s Invention 4 in D minor. The two voices of the invention are played on guitar and piano. The listener hears the piece twice, once while following the guitar and then the piano. In the study, specific notes were designed to tremble. The listener was asked to identify those notes by pressing a key.</p>
+    <p>The visualization takes the form of a music box. The inner cylinder carries the notes of the invention as a series of pins, with the guitar’s voice at one end and the piano’s at the other. The trembling notes are drawn as wavy pins. In the visualization, each of the recorded presses is represented by a little bead above the cylinder. As each pin sounds, the listener’s response to the note is drawn as a little comet coming from the pin. The stronger the response, the longer and brighter its tail.</p>
+    <p>The second cylinder is a visualization of the model that was trained on the listener’s responses. The algorithm is trying to guess the human response to each note. The difference between them can be seen in the model’s pins, which stay faint when it guesses accurately and brighten when it is wrong. It is also audible in the slight delay of the model’s version, which sounds an octave lower and a little after the listener’s.</p>
+    <p class="fine">Sources</p>
+    <p class="fine">Study: Etard, O., Ben Messaoud, R., Gaugain, G. and Reichenbach, T. (2022). No Evidence of Attentional Modulation of the Neural Response to the Temporal Fine Structure of Continuous Musical Pieces. <i>Journal of Cognitive Neuroscience</i> 34(3), 411–424. doi:10.1162/jocn_a_01811.</p>
+    <p class="fine">Data: listener EBIP02, <i>Bipolar EEG dataset, music</i> (Imperial College London, 2020; Zenodo 4470135, CC BY 4.0).</p>
+    <p class="fine">Efference: Godfrey-Smith, P. (2016). <i>Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness</i>. New York: Farrar, Straus and Giroux.</p>
+    <p class="fine">Model: a two-layer transformer trained on inventions 2, 3, 6 and 7 in both hearings, invention 4 held out. Designed by the artist; model trained by Claude (Anthropic). &copy; 2026 Alexandra Emberley.</p>
     <p><button id="aboutBack" type="button">Back to the work</button></p>
   </div>
 </section>
